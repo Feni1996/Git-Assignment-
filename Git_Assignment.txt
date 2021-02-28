@@ -1,0 +1,452 @@
+-------------------------------------------------Exercise: 1
+
+$ cd Exercise-1
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ touch index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ ls
+index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ vi index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ cat index.html
+<html>
+<h2>This is a index file.</h2>
+</html>
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git add .
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git commit -m 'Make index.html'
+[master (root-commit) a35592e] Make index.html
+ 1 file changed, 3 insertions(+)
+ create mode 100644 index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+-----------------------------------------------Exercise: 2
+cat > about.html
+This is about file.
+
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ cat about.html
+This is about file.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        about.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git add about.html
+warning: LF will be replaced by CRLF in about.html.
+The file will have its original line endings in your working directory
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git commit -m 'File about.html added'
+[master b298da2] File about.html added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 about.html
+
+-------------------------------------------------Exercise: 3
+ git commit --amend
+[master 8eca568] Added index.html and about.html file.
+ Date: Sat Feb 27 19:51:36 2021 -0500
+ 1 file changed, 1 insertion(+)
+ create mode 100644 about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git log --oneline
+8eca568 (HEAD -> master) Added index.html and about.html file.
+a35592e Make index.html
+
+--------------------------Exercise: 4
+ cat > .gitignore
+*.exe
+*.o
+*.jar
+
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git add .
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git commit -m "Added .gitignore file"
+[master 42185ba] Added .gitignore file
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitignore
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ touch a.exe b.jar
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ ls
+a.exe*  about.html  b.jar  index.html
+
+
+---------------------------------Exercise: 5
+$ vi about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git stash save "About.html added line for stash"
+warning: LF will be replaced by CRLF in about.html.
+The file will have its original line endings in your working directory
+Saved working directory and index state On master: About.html added line for stash
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git stash list
+stash@{0}: On master: About.html added line for stash
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git stash pop 0
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (f95fa8e7657bc17e20e257b015ac47d92da812a0)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git add .
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git commit -m "Added stashed line about.html"
+[master 0095ce2] Added stashed line about.html
+ 1 file changed, 1 insertion(+)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git stash list
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$
+
+-----------------------------------Exercise: 6
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git reset --soft HEAD~0
+HEAD is now at 0095ce2 Added stashed line about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git log --oneline
+0095ce2 (HEAD -> master) Added stashed line about.html
+42185ba Added .gitignore file
+8eca568 Added index.html and about.html file.
+a35592e Make index.html
+
+
+-----------------------------------Exercise: 7
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git reset --hard HEAD~0
+HEAD is now at 0095ce2 Added stashed line about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git log --oneline
+0095ce2 (HEAD -> master) Added stashed line about.html
+42185ba Added .gitignore file
+8eca568 Added index.html and about.html file.
+a35592e Make index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git reset --hard HEAD~2
+HEAD is now at 8eca568 Added index.html and about.html file.
+
+
+-------------------------------------Exercise 8:
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git branch
+* master
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git branch my-feature
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git branch
+* master
+  my-feature
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git checkout my-feature
+Switched to branch 'my-feature'
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat > abt.html
+This is about file.
+<h2>This is about.</h2>
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git status
+On branch my-feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.exe
+        abt.html
+        b.jar
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git add abt.html
+warning: LF will be replaced by CRLF in abt.html.
+The file will have its original line endings in your working directory
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git commit -m 'Added head part abt.html'
+[my-feature 286560e] Added head part abt.html
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abt.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git status
+On branch my-feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.exe
+        b.jar
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git checkout maste
+error: pathspec 'maste' did not match any file(s) known to git
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git checkout master
+Switched to branch 'master'
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git merge my-feature
+Updating 8eca568..286560e
+Fast-forward
+ abt.html | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abt.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ ls
+a.exe*  about.html  abt.html  b.jar  index.html
+
+
+------------------------------------------------Exercise: 9
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ cat abt.html
+This is about file.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git checkout my-feature
+Switched to branch 'my-feature'
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat abt.html
+This is about file.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat > abt.html
+
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat abt.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ ls
+a.exe*  about.html  abt.html  b.jar  index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat about.html
+This is about file.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ cat abt.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ vi about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git status
+On branch my-feature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+        modified:   abt.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.exe
+        b.jar
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git add about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git commit -m "Changed first line about.html"
+[my-feature d0efe7b] Changed first line about.html
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (my-feature)
+$ git checkout master
+Switched to branch 'master'
+M       abt.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ ls
+a.exe*  about.html  abt.html  b.jar  index.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ vi about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+        modified:   abt.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.exe
+        b.jar
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git add about.html
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git commit -m "Added first line about.html"
+[master f705dbb] Added first line about.html
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git merge My-feature
+Auto-merging about.html
+CONFLICT (content): Merge conflict in about.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff nvimdiff
+Merging:
+about.html
+
+Normal merge conflict for 'about.html':
+  {local}: modified file
+  {remote}: modified file
+Hit return to start merge resolution tool (vimdiff):
+4 files to edit
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master|MERGING)
+$ git merge My-feature
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   about.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   abt.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.exe
+        about.html.orig
+        b.jar
+
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master|MERGING)
+$ git add .
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master|MERGING)
+$ git commit -m "Committed all files"
+[master 74d3299] Committed all files
+
+harmi@LAPTOP-RD05QSTA MINGW64 ~/Desktop/git_pract/Exercise-1 (master)
+$ git merge My-feature
+Already up to date.
+
